@@ -1,0 +1,26 @@
+<?php
+echo "<h2>Testing Config File</h2>";
+
+// Check if config folder exists
+if (file_exists('config')) {
+    echo "✅ Config folder exists<br>";
+} else {
+    echo "❌ Config folder does NOT exist<br>";
+}
+
+// Check if db.php exists in config folder
+if (file_exists('config/db.php')) {
+    echo "✅ db.php file exists<br>";
+    echo "Including file...<br>";
+    include_once 'config/db.php';
+    echo "✅ File included successfully!<br>";
+    
+    if (isset($conn)) {
+        echo "✅ Database connection established<br>";
+    }
+} else {
+    echo "❌ db.php file does NOT exist in config folder<br>";
+}
+
+echo "<br>Current directory: " . __DIR__;
+?>
